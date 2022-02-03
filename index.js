@@ -1,5 +1,25 @@
-const server = require('express')();
+const express = require('express');
+const cors = require('cors');
 
-server.listen(5001, () => {
-    console.log('listening on port 5001')
+console.log(process.env.USER);
+console.log(process.env.HOME);
+console.log(process.env.PORT);
+
+const PORT = process.env.PORT || 5001;
+
+const server = express();
+
+server.use(express.json());
+server.use(cors());
+
+server.get('/', (req, res) => {
+    res.send(`<h1>This Rocks!</h1>`);
+})
+
+server.get('/api', (req, res) => {
+    res.json({ message: "This is awesome!" })
+})
+
+server.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`)
 })
