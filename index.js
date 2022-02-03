@@ -1,11 +1,12 @@
+require('dotenv').config(); // allows to stash 'artificial env variables' in a file
+
 const express = require('express');
 const cors = require('cors');
 
-console.log(process.env.USER);
-console.log(process.env.HOME);
-console.log(process.env.PORT);
+console.log(process.env.LADY);
+console.log(process.env.API_SECRET);
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5001; //fallback is noce
 
 const server = express();
 
